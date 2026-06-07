@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <h1><%= @task.title %></h1>
+  <p><%= @task.details %></p>
+
+  <p>
+    Status:
+    <% if @task.completed %>
+      <span class="badge bg-success">Completed</span>
+    <% else %>
+      <span class="badge bg-secondary">Not completed</span>
+    <% end %>
+  </p>
+
+  <%= link_to "Edit", edit_task_path(@task), class: "btn btn-warning" %>
+  <%= link_to "Back to list", tasks_path, class: "btn btn-secondary" %>
+  <%= link_to "Delete", task_path(@task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger" %>
+</div>
